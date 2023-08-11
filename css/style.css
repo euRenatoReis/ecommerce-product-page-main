@@ -1,0 +1,610 @@
+:root {
+
+    --marcaDescontoAddCart: hsl(26, 100%, 55%);
+    --bgDesconto: hsl(25, 100%, 94%);
+
+    --TituloePreco: hsl(220, 13%, 13%);
+    --colorparagrafos: hsl(219, 9%, 45%);
+    --colorMenuOptions: hsl(220, 14%, 75%);
+    --quantidadeControllBg: hsl(223, 64%, 98%);
+    --fundoPage: hsl(0, 0%, 100%);
+    --escurecimentoPage: rgba(0, 0, 0, 70%);
+    /*(with 75% opacity for lightbox background)*/
+
+    --fontSizeParagraph: 16px;
+    --borderRadiusPequeno: 10px;
+    --borderRadiusGrande: 20px;
+    --font-family: 'Kumbh Sans', sans-serif;
+
+    --cursorPage: pointer;
+}
+
+p {
+    font-size: var(--fontSizeParagraph);
+}
+
+body {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: darkgoldenrod;
+    height: 100vh;
+    font-family: var(--font-family);
+}
+
+main {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(180, 164, 124);
+    font-family: var(--font-family);
+}
+
+header {
+
+    width: 80%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(216, 201, 182);
+    justify-content: space-between;
+    border-bottom: solid 1px black;
+    align-self: center;
+}
+
+.logo-menu {
+
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.menu {
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 100%;
+}
+
+.menu input {
+
+    width: 66px;
+    height: 30px;
+    height: 100%;
+}
+
+.bt-menu{ cursor: var(--cursorPage);}
+
+.bt-menu.select {
+
+    border-bottom: solid 4px var(--marcaDescontoAddCart);
+}
+
+.carrinho-perfil {
+
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrinho-compras {
+
+    height: 40px;
+    width: 40px;
+    background-color: yellowgreen;
+    background-image: url(../images/icon-cart.svg);
+    background-size: cover;
+
+}
+
+.botao-perfil {
+
+    height: 50px;
+    width: 50px;
+    border-radius: var(--borderRadiusGrande);
+    background-color: darkmagenta;
+    background-image: url(../images/image-avatar.png);
+    background-size: cover;
+    border-radius: 25px;
+    cursor: var(--cursorPage);
+}
+
+.botao-perfil:hover {
+
+    border: solid 2px var(--marcaDescontoAddCart);
+}
+
+.carrinho-perfil button {
+
+    border-radius: 30px;
+    align-items: center;
+    justify-items: center;
+    background-color: brown;    
+}
+
+.carrinho-compras{
+
+    cursor: var(--cursorPage);
+}
+
+section {
+
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+
+    background-color: rgb(233, 233, 146);
+
+}
+
+
+.slider {
+
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(201, 162, 236);
+    width: 50%;
+    padding: 20px;
+    gap: 20px;
+}
+
+.slidegrande-portraiter {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.slide-grande-0 {
+
+    background-image: url(../images/image-product-1.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 405px;
+    border-radius: var(--borderRadiusGrande);
+}
+
+.slide-grande-1 {
+
+    background-image: url(../images/image-product-2.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 405px;
+    border-radius: var(--borderRadiusGrande);
+}
+
+.slide-grande-2 {
+
+    background-image: url(../images/image-product-3.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 405px;
+    border-radius: var(--borderRadiusGrande);
+}
+
+.slide-grande-3 {
+
+    background-image: url(../images/image-product-4.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 405px;
+    border-radius: var(--borderRadiusGrande);
+}
+
+.seta-voltar {
+
+    display: flex;
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    background-image: url(../images/icon-previous.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    position: absolute;
+    transform: translate(-20px, 200px);
+    cursor: var(--cursorPage);
+}
+
+.seta-avancar {
+
+    display: flex;
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    background-image: url(../images/icon-next.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    position: absolute;
+    transform: translate(475px, -207px);
+    cursor: var(--cursorPage);
+}
+
+.seta-avancar:hover{
+
+    color: var(--marcaDescontoAddCart);
+    
+
+}
+
+.slides {
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 20%;
+    background-color: chartreuse;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.slide-pequeno {
+
+    width: 90px;
+    height: 90px;
+    border-radius: var(--borderRadiusPequeno);
+    cursor: var(--cursorPage);
+}
+
+.slide-pequeno.selected {
+
+    border: solid 3px var(--marcaDescontoAddCart);
+
+}
+
+.slide-pequeno:nth-of-type(1) {
+    background-image: url(../images/image-product-1-thumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.slide-pequeno:nth-of-type(2) {
+    background-image: url(../images/image-product-2-thumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.slide-pequeno:nth-of-type(3) {
+    background-image: url(../images/image-product-3-thumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.slide-pequeno:nth-of-type(4) {
+    background-image: url(../images/image-product-4-thumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.descricao {
+
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px;
+    padding-top: 0px;
+    gap: 50px;
+    justify-content: center;
+    padding-left: 60px;
+    padding-right: 20px;
+    font-family: var(--font-family);
+}
+
+.marca {
+
+    align-content: start;
+    font-weight: bold;
+    color: var(--marcaDescontoAddCart);
+}
+
+.produto-titulo {
+
+    text-align: left;
+}
+
+.produto-titulo h1 {
+
+    font-size: 40px;
+}
+
+.texto {
+
+    text-align: left;
+}
+
+.preco-desconto-precoreal {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.preco-desconto {
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.desconto {
+
+    background-color: var(--bgDesconto);
+    color: var(--marcaDescontoAddCart);
+    height: 100%;
+    width: 35px;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.preco-real {
+
+    justify-self: left;
+    text-decoration: line-through;
+}
+
+.quantidade-finalizacao {
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 40px;
+}
+
+.quantidade {
+
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 40%;
+    background-color: var(--quantidadeControllBg);
+    align-items: center;
+    justify-content: space-between;
+    border-radius: var(--borderRadiusPequeno);
+}
+
+.diminuir {
+
+    height: 100%;
+    width: 40px;
+    background: none;
+    background-image: url(../images/icon-minus.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: var(--cursorPage);
+}
+
+.acrescentar {
+
+    height: 100%;
+    width: 40px;
+    background: none;
+    background-image: url(../images/icon-plus.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: var(--cursorPage);
+
+}
+
+.adicionar-cart {
+
+    border-radius: var(--borderRadiusPequeno);
+    height: 100%;
+    width: 60%;
+    background-color: var(--marcaDescontoAddCart);
+    cursor: var(--cursorPage);
+}
+
+.tela-slider {
+
+    display: none;
+}
+
+.tela-slider.aberto {
+
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: var(--escurecimentoPage);
+    width: 100%;
+    height: 100%;
+
+}
+
+.slider-tela {
+
+    display: flex;
+    height: 500px;
+    width: 500px;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    gap: 15px;
+    margin-bottom: 150px;
+}
+
+.botao-sair {
+
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/icon-close.svg);
+    margin-right: 10px;
+}
+
+.carrinho-card {
+
+    display: none;
+}
+
+.carrinho-card.open {
+
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0px 0px 39px 0px var(--colorparagrafos);
+    gap: 20px;
+    position: absolute;
+    transform: translate(910px, -220px);
+    padding: 10px;
+    border-radius: var(--borderRadiusPequeno);
+    width: 336px;
+    height: 180px;
+}
+
+.tittle-div {
+
+    border-bottom: 1px solid black;
+}
+
+.carrinho-card.open div:nth-of-type(2) {
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.conteudo-pedido {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrinho-card.open img {
+
+    width: 60px;
+    height: 60px;
+}
+
+.custo {
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+.total {
+
+    font-weight: bold;
+    color: var(--colorparagrafos);
+
+}
+
+.excluir-pedido {
+
+    background-image: url(../images/icon-delete.svg);
+    background-color: var(--quantidadeControllBg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+}
+
+.checkout-bt {
+
+    width: 100%;
+    height: 40px;
+    background-color: var(--marcaDescontoAddCart);
+    border-radius: var(--borderRadiusPequeno);
+}
+
+.botao-sair {
+
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 100%;
+}
+
+
+.zoom-slide-grande-0 {
+
+    background-image: url(../images/image-product-1.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 405px;
+    border-radius: var(--borderRadiusGrande);
+}
+
+.zoom-slide-grande-1 {
+
+    background-image: url(../images/image-product-2.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 405px;
+    border-radius: var(--borderRadiusGrande);
+}
+
+.zoom-slide-grande-2 {
+
+    background-image: url(../images/image-product-3.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 405px;
+    border-radius: var(--borderRadiusGrande);
+}
+
+.zoom-slide-grande-3 {
+
+    background-image: url(../images/image-product-4.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 405px;
+    border-radius: var(--borderRadiusGrande);
+}
+
+
+.zoom-slide-pequeno {
+
+    width: 90px;
+    height: 90px;
+    border-radius: var(--borderRadiusPequeno);
+}
+
+.zoom-slide-pequeno.selected {
+
+    border: solid 3px var(--marcaDescontoAddCart);
+
+}
+
+.zoom-slide-pequeno:nth-of-type(1) {
+    background-image: url(../images/image-product-1-thumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.zoom-slide-pequeno:nth-of-type(2) {
+    background-image: url(../images/image-product-2-thumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.zoom-slide-pequeno:nth-of-type(3) {
+    background-image: url(../images/image-product-3-thumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.zoom-slide-pequeno:nth-of-type(4) {
+    background-image: url(../images/image-product-4-thumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+}

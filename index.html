@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" media="(max-width: 1440px)" href="./css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" media="(max-width: 375px)" href="./css/mobile.css">
+
+</head>
+
+<body>
+
+  <main class="tela-principal">
+
+    <header>
+      <div class="logo-menu">
+        <div class="logo">
+          <img src="./images/logo.svg" alt="logo da empresa">
+        </div>
+        <div class="menu">
+          <input class="bt-menu" value="Collections" type="button">
+          <input class="bt-menu" value="Men" type="button">
+          <input class="bt-menu" value="Women" type="button">
+          <input class="bt-menu" value="About" type="button">
+          <input class="bt-menu" value="Contact" type="button">
+        </div>
+      </div>
+      <div class="carrinho-perfil">
+        <input class="carrinho-compras" type="button" alt="carrinho de compras">
+        <input class="botao-perfil" type="button" alt="seu perfil">
+      </div>
+    </header>
+
+    <section>
+
+      <div class="slider">
+
+        <div class="slidegrande-portraiter">
+         
+          <input class="slide-grande-0 maior" alt="imagens do produto" type="button">
+        
+        </div>
+
+        <div class="slides">
+
+          <input class="slide-pequeno selected" type="button" alt="primeiro slide do produto">
+          <input class="slide-pequeno" type="button" alt="segundo slide do produto">
+          <input class="slide-pequeno" type="button" alt="terceiro slide do produto">
+          <input class="slide-pequeno" type="button" alt="quarto slide do produto">
+
+        </div>
+
+      </div>
+      <div class="descricao">
+
+        <div class="marca">
+          <p>SNEAKER COMPANY</p>
+        </div>
+        <div class="produto-titulo">
+          <h1>Fall Limited Edition Sneakers</h1>
+        </div>
+        <div class="texto">
+          <p>
+            These low-profile sneakers are your perfect casual wear companion. Featuring a
+            durable rubber outer sole, they’ll withstand everything the weather can offer.
+          </p>
+        </div>
+        <div class="preco-desconto-precoreal">
+
+          <div class="preco-desconto">
+            <h3 class="preco">$125.00</h3>
+            <b>
+              <p class="desconto">50%</p>
+            </b>
+          </div>
+          <p class="preco-real">
+            $250.00
+          </p>
+        </div>
+
+        <div class="quantidade-finalizacao">
+
+          <div class="quantidade">
+            <input class="diminuir" type="button">
+            <p class="quant">0</p>
+            <input class="acrescentar" type="button">
+          </div>
+
+          <input class="adicionar-cart" value="Add to cart" type="button">
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <section class="tela-slider">
+
+   
+    <div class="slider-tela">
+
+      <input class="botao-sair" alt="sair" type="button">
+
+      <div class="zoom-slidegrande-portraiter">
+        <input class="seta-voltar" type="button">
+        <input class="zoom-slide-grande-0 zoom-maior" alt="imagens do produto" type="button">
+        <input class="seta-avancar" type="button">
+      </div>
+
+      <div class="slides">
+
+        <input class="zoom-slide-pequeno selected" type="button" alt="primeiro slide do produto">
+        <input class="zoom-slide-pequeno" type="button" alt="segundo slide do produto">
+        <input class="zoom-slide-pequeno" type="button" alt="terceiro slide do produto">
+        <input class="zoom-slide-pequeno" type="button" alt="quarto slide do produto">
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+  <div class="carrinho-card">
+    
+    <div class="title-div">
+      <h4>Cart</h4>
+    </div>
+    <div class="conteudo-pedido">
+
+      <p>Your cart is empty.</p>
+
+    </div>
+
+  </div>
+
+  <script src="./js/index.js"></script>
+
+</body>
+
+</html>
