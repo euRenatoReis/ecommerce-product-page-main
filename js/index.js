@@ -3,7 +3,7 @@
 
 // funções: 
 // cada botao do slider vai trocar o slide maior com sua respectiva imagem (ok) #
-// as setas controlam a imagem                                             ()  
+// as setas controlam a imagem                                             (ok) # 
 // o slide maior ao ser clicado, abre uma outra tela com o slider aproximado (Ok) 
 // no botao ajustar quantidade deve poder aumentar ou diminuir a quantidade de produtos (OK) #
 // quando clicar no botao "adicionar ao cart" o item ser armazenado                    (ok) #
@@ -14,8 +14,8 @@
 
    botao excluir pedido                                  (ok)  
    os portraiters e o slider estão desaninhados          (ok)
-   as setas estão ruins                       
-   escurecer o fundo do slider aproximado            
+   as setas estão ruins                                  (ok)
+   escurecer o fundo do slider aproximado                (ok)  
    slider portraiters não controlam o slider maior       (ok)
    botao que fecha o slider aproximado não fecha         (ok)
    o slide grande não está abrindo a tela zoom           
@@ -39,7 +39,7 @@ const telaPrincipal = document.querySelector('.tela-principal');
 const botoesMenu = document.querySelectorAll('.bt-menu');
 
 const adicionarCart = document.querySelector('.adicionar-cart');
-
+const carrinhoPerfilDiv = document.querySelector('.carrinho-perfil');
 const carrinhoCard = document.querySelector('.carrinho-card');
 const conteudoPedido = document.querySelector('.conteudo-pedido');
 const btCheckOut = document.querySelector('.checkout-bt')
@@ -61,6 +61,7 @@ btAcrescentar.addEventListener('click', () => {
 
     quantidadeControle.innerHTML = `<p>${quantidadeProdutos}</p>`
 
+   
 })
 
 
@@ -73,7 +74,7 @@ btDiminuir.addEventListener('click', () => {
         return quantidadeProdutos === 0
     }
 
-    quantidadeControle.innerHTML = `<p>${quantidadeProdutos}</p>`
+
 })
 
 
@@ -102,6 +103,23 @@ btCarrinho.addEventListener('click', () => {
 })
 
 adicionarCart.addEventListener('click', () => {
+
+    if(quantidadeProdutos === 0){
+
+        return quantidadeProdutos === 1
+    }
+
+
+    btCarrinho.innerHTML = `<div class="esfera-notifi">${quantidadeProdutos}</div>`
+
+    if (quantidadeProdutos > 0) {
+
+        carrinhoPerfilDiv.innerHTML += `
+        <div class="esfera-notifi">${quantidadeProdutos}</div>
+        `
+    }
+
+
 
     carrinhoCard.innerHTML = ` 
                                   <div class="title-div">
@@ -136,8 +154,10 @@ adicionarCart.addEventListener('click', () => {
 
     })
 
-})
 
+
+
+})
 
 
 /* botoes menu */
@@ -155,13 +175,9 @@ botoesMenu.forEach((btmenu) => {
 
         btmenu.classList.add('select');
 
-        console.log('chegou')
-
     })
 
 })
-
-
 
 
 
@@ -170,70 +186,53 @@ botoesMenu.forEach((btmenu) => {
 
 setaAvancar.addEventListener('click', () => {
 
+    let zoomMaior = document.querySelector('.zoom-maior');
+
 
     if (indiceAtual > slidePequeno.length) {
 
-        return indiceAtual === 0
+        return (indiceAtual === 0)
     }
 
-
-    // trocar o bagground atraves do style={background}
-
+    zoomMaior.classList.remove(`zoom-slide-grande-${indiceAtual}`);
     zoomSlidesPequenos[indiceAtual].classList.remove('selected');
 
-    /* zoomSlideGrandePortraiter.innerHTML = `
-     <input class="seta-voltar" type="button">
-     <input class="zoom-slide-grande-${indiceAtual} maior" alt="imagens do produto" type="button">
-     <input class="seta-avancar" type="button">  ` */
 
     indiceAtual = (indiceAtual + 1) % zoomSlidesPequenos.length
 
 
     zoomSlidesPequenos[indiceAtual].classList.add('selected');
+    zoomMaior.classList.add(`zoom-slide-grande-${indiceAtual}`);
 
-
-    /* zoomSlideGrandePortraiter.innerHTML = `
-     <input class="seta-voltar" type="button">
-     <input class="zoom-slide-grande-${indiceAtual} maior" alt="imagens do produto" type="button">
-     <input class="seta-avancar" type="button">           
-     ` */
 
     RemoveSelecionados()
-
-    /*  
-     carrossel[indiceAtual].classList.remove('aberto');
-     indiceAtual = (indiceAtual + 1) % carrossel.length;
-     carrossel[indiceAtual].classList.add('aberto'); 
-    */
 
 })
 
 setaRetornar.addEventListener('click', () => {
 
+    let zoomMaior = document.querySelector('.zoom-maior');
 
     if (indiceAtual < 0) {
 
-        indiceAtual === slidePequeno.length
+        return (indiceAtual === slidePequeno.length)
     }
 
 
     zoomSlidesPequenos[indiceAtual].classList.remove('selected');
+    zoomMaior.classList.remove(`zoom-slide-grande-${indiceAtual}`)
 
 
-
-    indiceAtual = (indiceAtual - 1 + zoomSlidesPequenos.length) % zoomSlidesPequenos.length
+    indiceAtual = (indiceAtual - 1 + zoomSlidesPequenos.length) % zoomSlidesPequenos.length;
 
 
     zoomSlidesPequenos[indiceAtual].classList.add('selected');
-
+    zoomMaior.classList.add(`zoom-slide-grande-${indiceAtual}`);
 
     RemoveSelecionados()
 
-    slidePequeno[indiceAtual].classList.add('selected');
+    zoomSlidesPequenos[indiceAtual].classList.add('selected');
 
-    /* carrossel[indiceAtual].classList.remove('aberto');
-  indiceAtual = (indiceAtual - 1 + carrossel.length) % carrossel.length;
-  carrossel[indiceAtual].classList.add('aberto'); */
 
 })
 
