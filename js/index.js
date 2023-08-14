@@ -1,26 +1,6 @@
 
 
 
-// funções: 
-// cada botao do slider vai trocar o slide maior com sua respectiva imagem (ok) #
-// as setas controlam a imagem                                             (ok) # 
-// o slide maior ao ser clicado, abre uma outra tela com o slider aproximado (Ok) 
-// no botao ajustar quantidade deve poder aumentar ou diminuir a quantidade de produtos (OK) #
-// quando clicar no botao "adicionar ao cart" o item ser armazenado                    (ok) #
-// se o carrinho for acessado mostrar o item, tendo a possibilidade de remove-lo se quiser (ok) # 
-// quando os botoes do menu for cliclado, dar uma borda laranja na parte inferior  (OK) #
-
-/*falta:   
-
-   botao excluir pedido                                  (ok)  
-   os portraiters e o slider estão desaninhados          (ok)
-   as setas estão ruins                                  (ok)
-   escurecer o fundo do slider aproximado                (ok)  
-   slider portraiters não controlam o slider maior       (ok)
-   botao que fecha o slider aproximado não fecha         (ok)
-   o slide grande não está abrindo a tela zoom           
-*/
-
 const slidePequeno = document.querySelectorAll('.slide-pequeno');
 const slidePortraiter = document.querySelector('.slidegrande-portraiter');
 
@@ -91,15 +71,15 @@ btCarrinho.addEventListener('click', () => {
         btCarrinho.classList.remove('ativo')
         carrinhoCard.classList.remove('open')
 
+        console.log('fechou')
+
     } else {
 
-        btCarrinho.classList.add('ativo');
+        btCarrinho.classList.toggle('ativo');
+        carrinhoCard.classList.toggle('open')
 
-        carrinhoCard.classList.add('open')
-
-        return
+        console.log('abriu')
     }
-
 
 })
 
@@ -325,9 +305,6 @@ function AnteriorSlide() {
 
     let zoomMaior = document.querySelector('.zoom-maior');
 
-    
-
-
     if (indiceAtual < 0) {
 
         return (indiceAtual === slidePequeno.length)
@@ -354,4 +331,85 @@ function AnteriorSlide() {
 
 
 
+// Funções no responsivo
 
+
+if (window.matchMedia("(width: 375px)").matches) {
+
+
+    const SetaMobileVoltar = document.querySelector('.seta-voltar-mobile');
+    const SetaMobileAvancar = document.querySelector('.seta-avancar-mobile');
+    const btMenuMobile = document.querySelector('.bt-menu-mobile');
+
+    //slideMaior
+
+
+    SetaMobileAvancar.addEventListener('click', () => {
+
+        if (indiceAtual < 0) {
+
+            return (indiceAtual === 4)
+        }
+
+        slideMaior.classList.remove(`slide-grande-${indiceAtual}`);
+
+        indiceAtual = (indiceAtual + 1) % 4;
+
+        slideMaior.classList.add(`slide-grande-${indiceAtual}`);
+
+
+    })
+
+    SetaMobileVoltar.addEventListener('click', () => {
+
+
+        if (indiceAtual > 4) {
+
+            return (indiceAtual === 0)
+        }
+
+        slideMaior.classList.remove(`slide-grande-${indiceAtual}`);
+
+        indiceAtual = (indiceAtual - 1 + 4) % 4;
+
+        slideMaior.classList.add(`slide-grande-${indiceAtual}`);
+
+    })
+
+
+    btMenuMobile.addEventListener('click', () => {
+
+
+
+        btMenuMobile.classList.add('aberto');
+
+        telaPrincipal.innerHTML += `
+            
+            <div class="menu-mobile"> 
+              
+
+             <div>
+             <input class="botao-fechar-menu" type="button">
+              <input class="bt-menu" value="Collections" type="button">
+              <input class="bt-menu" value="Men" type="button">
+              <input class="bt-menu" value="Women" type="button">
+              <input class="bt-menu" value="About" type="button">
+              <input class="bt-menu" value="Contact" type="button">
+             </div>
+            </div>
+        
+            `
+
+        const botaoFecharMenu = document.querySelector('.botao-fechar-menu');
+
+        botaoFecharMenu.addEventListener('click', () => {
+
+            btMenuMobile.classList.remove('aberto');
+
+            document.querySelector('.menu-mobile').remove();
+
+        })
+
+    })
+
+}
