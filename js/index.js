@@ -28,6 +28,8 @@ const setaRetornar = document.querySelector('.seta-voltar');
 const setaAvancar = document.querySelector('.seta-avancar');
 
 const zoomSlidesPequenos = document.querySelectorAll('.zoom-slide-pequeno');
+const zoomSlideGrandePortraiter = document.querySelector('.zoom-slidegrande-portraiter');
+const slideMaior = document.querySelector('.maior');
 
 const btDiminuir = document.querySelector('.diminuir');
 const btAcrescentar = document.querySelector('.acrescentar');
@@ -44,8 +46,7 @@ const carrinhoCard = document.querySelector('.carrinho-card');
 const conteudoPedido = document.querySelector('.conteudo-pedido');
 const btCheckOut = document.querySelector('.checkout-bt')
 
-const zoomSlideGrandePortraiter = document.querySelector('.zoom-slidegrande-portraiter');
-const slideMaior = document.querySelector('.maior');
+
 
 
 var indiceAtual = 0;
@@ -61,7 +62,7 @@ btAcrescentar.addEventListener('click', () => {
 
     quantidadeControle.innerHTML = `<p>${quantidadeProdutos}</p>`
 
-   
+
 })
 
 
@@ -104,7 +105,7 @@ btCarrinho.addEventListener('click', () => {
 
 adicionarCart.addEventListener('click', () => {
 
-    if(quantidadeProdutos === 0){
+    if (quantidadeProdutos === 0) {
 
         return quantidadeProdutos === 1
     }
@@ -175,10 +176,83 @@ botoesMenu.forEach((btmenu) => {
 
         btmenu.classList.add('select');
 
+
+
     })
 
 })
 
+
+/* Slider Função: troca imagem maior com base na menor */
+
+slidePequeno.forEach((slide, index) => {
+
+
+    slide.addEventListener('click', () => {
+
+        slidePortraiter.innerHTML = `
+          
+           <input class="slide-grande-${index} maior" alt="imagens do produto" type="button">
+            
+        `
+
+        RemoveSelecionados()
+
+        slide.classList.add('selected');
+
+    })
+
+    indiceAtual = index
+
+})
+
+
+// tela do slider
+
+
+slidePortraiter.addEventListener('click', () => {
+
+    const telaSlider = document.querySelector('.tela-slider');
+
+    telaSlider.classList.add('aberto');
+
+    const btSair = document.querySelector('.botao-sair');
+
+    btSair.addEventListener('click', () => {
+
+        telaSlider.classList.remove('aberto')
+
+    })
+
+})
+
+
+// zoom slider
+
+
+zoomSlidesPequenos.forEach((slide, index) => {
+
+
+
+    slide.addEventListener('click', () => {
+
+        zoomSlideGrandePortraiter.innerHTML = `
+           <input class="seta-voltar" type="button">
+           <input class="zoom-slide-grande-${index} zoom-maior" alt="imagens do produto" type="button">
+           <input class="seta-avancar" type="button">
+               
+        `
+        zoomSlidesPequenos.forEach((slide) => {
+
+            slide.classList.remove('selected')
+        })
+
+        slide.classList.add('selected');
+
+    })
+
+
+})
 
 
 // setas do slider
@@ -213,6 +287,9 @@ setaRetornar.addEventListener('click', () => {
 
     let zoomMaior = document.querySelector('.zoom-maior');
 
+    
+
+
     if (indiceAtual < 0) {
 
         return (indiceAtual === slidePequeno.length)
@@ -233,80 +310,9 @@ setaRetornar.addEventListener('click', () => {
 
     zoomSlidesPequenos[indiceAtual].classList.add('selected');
 
+    zoomSlidesPequenos.indexOf(zoomSlidesPequenos[indiceAtual].classList.add('selected'))
 
 })
-
-
-/* Slider Função: troca imagem maior com base na menor */
-
-slidePequeno.forEach((slide, index) => {
-
-
-    slide.addEventListener('click', () => {
-
-        slidePortraiter.innerHTML = `
-          
-           <input class="slide-grande-${index} maior" alt="imagens do produto" type="button">
-            
-        `
-
-        RemoveSelecionados()
-
-        slide.classList.add('selected');
-
-
-    })
-
-})
-
-
-// tela do slider
-
-slideMaior.addEventListener('click', () => {
-
-    const telaSlider = document.querySelector('.tela-slider');
-
-    telaSlider.classList.add('aberto');
-
-    const btSair = document.querySelector('.botao-sair');
-
-    btSair.addEventListener('click', () => {
-
-        telaSlider.classList.remove('aberto')
-
-    })
-
-
-})
-
-
-
-
-// zoom slider
-
-
-zoomSlidesPequenos.forEach((slide, index) => {
-
-    slide.addEventListener('click', () => {
-
-        zoomSlideGrandePortraiter.innerHTML = `
-           <input class="seta-voltar" type="button">
-           <input class="zoom-slide-grande-${index} zoom-maior" alt="imagens do produto" type="button">
-           <input class="seta-avancar" type="button">
-               
-        `
-        zoomSlidesPequenos.forEach((slide) => {
-
-            slide.classList.remove('selected')
-        })
-
-        slide.classList.add('selected');
-
-    })
-
-
-})
-
 
 
 
