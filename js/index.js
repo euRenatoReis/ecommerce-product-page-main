@@ -249,6 +249,13 @@ zoomSlidesPequenos.forEach((slide, index) => {
 
         slide.classList.add('selected');
 
+        indiceAtual = index;
+
+        document.querySelector('.seta-voltar').addEventListener('click', AnteriorSlide)
+
+        document.querySelector('.seta-avancar').addEventListener('click', PromixoSlide)
+
+
     })
 
 
@@ -258,12 +265,39 @@ zoomSlidesPequenos.forEach((slide, index) => {
 // setas do slider
 
 
-setaAvancar.addEventListener('click', () => {
+setaAvancar.addEventListener('click', PromixoSlide)
+
+setaRetornar.addEventListener('click', AnteriorSlide)
+
+
+//fuções
+
+function RemoveSelecionados() {
+
+    slidePequeno.forEach((slide) => {
+
+        slide.classList.remove('selected')
+    })
+}
+
+function RemoveSelecionadosZoom() {
+
+    zoomSlidesPequenos.forEach((slide) => {
+
+        slide.classList.remove('selected')
+    })
+}
+
+
+//funções PARA as setas
+
+
+function PromixoSlide() {
 
     let zoomMaior = document.querySelector('.zoom-maior');
 
 
-    if (indiceAtual > slidePequeno.length) {
+    if (indiceAtual > zoomSlidesPequenos.length) {
 
         return (indiceAtual === 0)
     }
@@ -278,12 +312,16 @@ setaAvancar.addEventListener('click', () => {
     zoomSlidesPequenos[indiceAtual].classList.add('selected');
     zoomMaior.classList.add(`zoom-slide-grande-${indiceAtual}`);
 
+    RemoveSelecionadosZoom()
 
-    RemoveSelecionados()
+    zoomSlidesPequenos[indiceAtual].classList.add('selected');
 
-})
+    console.log('imprime')
 
-setaRetornar.addEventListener('click', () => {
+}
+
+function AnteriorSlide() {
+
 
     let zoomMaior = document.querySelector('.zoom-maior');
 
@@ -306,31 +344,13 @@ setaRetornar.addEventListener('click', () => {
     zoomSlidesPequenos[indiceAtual].classList.add('selected');
     zoomMaior.classList.add(`zoom-slide-grande-${indiceAtual}`);
 
-    RemoveSelecionados()
+    RemoveSelecionadosZoom()
 
     zoomSlidesPequenos[indiceAtual].classList.add('selected');
 
-    zoomSlidesPequenos.indexOf(zoomSlidesPequenos[indiceAtual].classList.add('selected'))
 
-})
-
-
-
-
-
-//fuções
-
-function RemoveSelecionados() {
-
-    slidePequeno.forEach((slide) => {
-
-        slide.classList.remove('selected')
-    })
+    console.log('imprime')
 }
-
-
-
-
 
 
 

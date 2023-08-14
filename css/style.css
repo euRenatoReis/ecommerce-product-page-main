@@ -19,8 +19,13 @@
     --cursorPage: pointer;
 }
 
+h1 {
+    color: var(--TituloePreco);
+}
+
 p {
     font-size: var(--fontSizeParagraph);
+    color: var(--colorparagrafos);
 }
 
 body {
@@ -80,7 +85,10 @@ header {
     height: 100%;
 }
 
-.bt-menu{ cursor: var(--cursorPage);}
+.bt-menu {
+    cursor: var(--cursorPage);
+    color: var(--colorMenuOptions);
+}
 
 .bt-menu.select {
 
@@ -129,27 +137,27 @@ header {
     border-radius: 30px;
     align-items: center;
     justify-items: center;
-    background-color: brown;    
+    background-color: brown;
 }
 
-.carrinho-compras{
+.carrinho-compras {
 
     cursor: var(--cursorPage);
 }
 
-.esfera-notifi{
+.esfera-notifi {
 
     display: flex;
     position: absolute;
     background-color: var(--marcaDescontoAddCart);
-    align-self:flex-start;
+    align-self: flex-start;
     justify-content: center;
     align-items: center;
     height: 15px;
     width: 25px;
     border-radius: 8px;
     font-size: 14px;
-    transform: translate(-25px,12px);
+    transform: translate(-25px, 12px);
 }
 
 
@@ -250,10 +258,10 @@ section {
     cursor: var(--cursorPage);
 }
 
-.seta-avancar:hover{
+.seta-avancar:hover {
 
     color: var(--marcaDescontoAddCart);
-    
+
 
 }
 
@@ -280,7 +288,16 @@ section {
 .slide-pequeno.selected {
 
     border: solid 3px var(--marcaDescontoAddCart);
+    filter: brightness(200%);
+    -webkit-filter: brightness(200%);
+    -moz-filter: brightness(200%);
+}
 
+.slide-pequeno:hover {
+
+    filter: brightness(150%);
+    -webkit-filter: brightness(150%);
+    -moz-filter: brightness(150%);
 }
 
 .slide-pequeno:nth-of-type(1) {
@@ -325,6 +342,10 @@ section {
 
     align-content: start;
     font-weight: bold;
+}
+
+.marca p {
+
     color: var(--marcaDescontoAddCart);
 }
 
@@ -356,6 +377,11 @@ section {
     flex-direction: row;
     gap: 20px;
 }
+
+.preco {
+    color: var(--TituloePreco);
+}
+
 
 .desconto {
 
@@ -465,10 +491,10 @@ section {
     transform: translate(-30px);
 }
 
-.botao-sair:hover{
+.botao-sair:hover {
 
     color: var(--marcaDescontoAddCart);
-    
+
 }
 
 .carrinho-card {
@@ -605,8 +631,19 @@ section {
 .zoom-slide-pequeno.selected {
 
     border: solid 3px var(--marcaDescontoAddCart);
-
+    border: solid 3px var(--marcaDescontoAddCart);
+    filter: brightness(200%);
+    -webkit-filter: brightness(200%);
+    -moz-filter: brightness(200%);
 }
+
+.zoom-slide-pequeno:hover {
+
+    filter: brightness(150%);
+    -webkit-filter: brightness(150%);
+    -moz-filter: brightness(150%);
+}
+
 
 .zoom-slide-pequeno:nth-of-type(1) {
     background-image: url(../images/image-product-1-thumbnail.jpg);
