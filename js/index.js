@@ -16,6 +16,7 @@ const btAcrescentar = document.querySelector('.acrescentar');
 const quantidadeControle = document.querySelector('.quant')
 
 const btCarrinho = document.querySelector('.carrinho-compras');
+const esferaNotifi = document.querySelector('.esfera-notifi');
 const telaPrincipal = document.querySelector('.tela-principal');
 
 const botoesMenu = document.querySelectorAll('.bt-menu');
@@ -26,7 +27,8 @@ const carrinhoCard = document.querySelector('.carrinho-card');
 const conteudoPedido = document.querySelector('.conteudo-pedido');
 const btCheckOut = document.querySelector('.checkout-bt')
 
-
+const menuMobile = document.querySelector('.menu-mobile');
+const botaoFecharMenu = document.querySelector('.botao-fechar-menu');
 
 
 var indiceAtual = 0;
@@ -43,6 +45,10 @@ btAcrescentar.addEventListener('click', () => {
     quantidadeControle.innerHTML = `<p>${quantidadeProdutos}</p>`
 
 
+    esferaNotifi.classList.add('ativa');
+
+    esferaNotifi.innerHTML = `${quantidadeProdutos}`
+
 })
 
 
@@ -50,11 +56,17 @@ btDiminuir.addEventListener('click', () => {
 
     quantidadeProdutos--
 
-    if (quantidadeProdutos < 0) {
+    quantidadeControle.innerHTML = `<p>${quantidadeProdutos}</p>`
+    esferaNotifi.innerHTML = `${quantidadeProdutos}`
+
+
+    if (quantidadeProdutos <= 0) {
+
+        esferaNotifi.classList.remove('ativa')
 
         return quantidadeProdutos === 0
-    }
 
+    }
 
 })
 
@@ -87,19 +99,8 @@ adicionarCart.addEventListener('click', () => {
 
     if (quantidadeProdutos === 0) {
 
-        return quantidadeProdutos === 1
+        return
     }
-
-
-    btCarrinho.innerHTML = `<div class="esfera-notifi">${quantidadeProdutos}</div>`
-
-    if (quantidadeProdutos > 0) {
-
-        carrinhoPerfilDiv.innerHTML += `
-        <div class="esfera-notifi">${quantidadeProdutos}</div>
-        `
-    }
-
 
 
     carrinhoCard.innerHTML = ` 
@@ -296,7 +297,7 @@ function PromixoSlide() {
 
     zoomSlidesPequenos[indiceAtual].classList.add('selected');
 
-    console.log('imprime')
+ 
 
 }
 
@@ -325,8 +326,6 @@ function AnteriorSlide() {
 
     zoomSlidesPequenos[indiceAtual].classList.add('selected');
 
-
-    console.log('imprime')
 }
 
 
@@ -380,33 +379,13 @@ if (window.matchMedia("(width: 375px)").matches) {
     btMenuMobile.addEventListener('click', () => {
 
 
-
         btMenuMobile.classList.add('aberto');
-
-        telaPrincipal.innerHTML += `
-            
-            <div class="menu-mobile"> 
-              
-
-             <div>
-             <input class="botao-fechar-menu" type="button">
-              <input class="bt-menu" value="Collections" type="button">
-              <input class="bt-menu" value="Men" type="button">
-              <input class="bt-menu" value="Women" type="button">
-              <input class="bt-menu" value="About" type="button">
-              <input class="bt-menu" value="Contact" type="button">
-             </div>
-            </div>
-        
-            `
-
-        const botaoFecharMenu = document.querySelector('.botao-fechar-menu');
+        menuMobile.classList.add('ativo');
 
         botaoFecharMenu.addEventListener('click', () => {
 
             btMenuMobile.classList.remove('aberto');
-
-            document.querySelector('.menu-mobile').remove();
+            menuMobile.classList.remove('ativo');
 
         })
 
